@@ -67,6 +67,7 @@ Before you install the gcloud CLI, make sure that your operating system meets th
     
     ```text
     sudo apt-get update && sudo apt-get install google-cloud-cli
+    ```
     
     For additional `apt-get` options, such as disabling prompts or dry runs, refer to the [`apt-get` man pages](https://linux.die.net/man/8/apt-get).
     
