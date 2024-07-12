@@ -6,7 +6,7 @@ pre-commit install
 
 # Introduction
 
-Turn text into lifelike spoken audio using OpenAI's TTS
+Turn text into lifelike spoken audio using Google Cloud Platform's TTS
 
 ## Getting Started
 
