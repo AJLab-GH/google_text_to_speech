@@ -23,12 +23,14 @@ Before you install the gcloud CLI, make sure that your operating system meets th
     
     ```text
     sudo apt-get update
+    ```
     
     
 -   It has [`apt-transport-https`](https://packages.debian.org/bullseye/apt-transport-https) and `curl` installed:
     
     ```text
     sudo apt-get install apt-transport-https ca-certificates gnupg curl
+    ```
     
     
 
@@ -39,16 +41,19 @@ Before you install the gcloud CLI, make sure that your operating system meets th
         
         ```text
         curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+        ```
         
     -   For older distributions, run the following command:
         
         ```text
         curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+        ```
         
     -   If your distribution's apt-key command doesn't support the `--keyring` argument, run the following command:
         
         ```text
         curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+        ```
         
     -   If you can't get latest updates due to an expired key, [obtain the latest apt-get.gpg key file](https://cloud.google.com/compute/docs/troubleshooting/known-issues#keyexpired).
         
@@ -57,28 +62,33 @@ Before you install the gcloud CLI, make sure that your operating system meets th
         
         ```text
         echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+        ```
         
     -   For older distributions that don't support the signed-by option, run the following command:
         
         ```text
         echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+        ```
         
 3.  Update and install the gcloud CLI:
     
     ```text
     sudo apt-get update && sudo apt-get install google-cloud-cli
     ```
-    
+
     For additional `apt-get` options, such as disabling prompts or dry runs, refer to the [`apt-get` man pages](https://linux.die.net/man/8/apt-get).
     
     **Docker Tip:** If installing the gcloud CLI inside a Docker image, use a single RUN step instead:
     
     ```text
     RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && apt-get update -y && apt-get install google-cloud-sdk -y
+    ```
     
     For older base images that do not support the `gpg --dearmor` command:
+
     ```text
     RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-cli -y
+    ```
       
 4.  (Optional) Install any of the following [additional components](https://cloud.google.com/sdk/docs/components#additional_components):
     
@@ -113,18 +123,20 @@ Before you install the gcloud CLI, make sure that your operating system meets th
     
     ```text
     sudo apt-get install google-cloud-cli-app-engine-java
+    ```
     
 5.  Run [`gcloud init`](https://cloud.google.com/sdk/gcloud/reference/init) to get started:
     
     ```text
     gcloud init
+    ```
     
 
 **Downgrading gcloud CLI versions**
 
 To revert to a specific version of the gcloud CLI, where `VERSION` is of the form `123.0.0`, run the following command:
 
-```
+```text
 sudo apt-get update &amp;&amp; sudo apt-get install google-cloud-cli=123.0.0-0
 ```
 
