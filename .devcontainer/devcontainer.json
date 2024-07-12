@@ -1,9 +1,9 @@
 {
   "image": "docker.io/robinmordasiewicz/devcontainer:latest",
   "initializeCommand": "docker pull docker.io/robinmordasiewicz/devcontainer:latest",
-  "name": "tts-template",
+  "name": "tts-gcp",
   "runArgs": [
-    "--name=tts-template",
-    "--hostname=tts-template"
+    "--name=tts-gcp",
+    "--hostname=tts-gcp"
       ]
 }
